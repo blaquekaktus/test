@@ -1,0 +1,15 @@
+// Used only on the Workers route. A Pages project skips this file
+// (it has no pages_build_output_dir).
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "feasibility-test",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./_site",
+    "binding": "ASSETS",
+    "run_worker_first": ["/auth", "/callback"]
+  },
+  // Keep runtime variables set in the dashboard when a build deploys.
+  "keep_vars": true
+}

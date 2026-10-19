@@ -1,0 +1,21 @@
+---
+layout: base.njk
+---
+<h1>{{ title }}</h1>
+<ul>
+  <li>Type: {{ type | label(labels.type) }}</li>
+  <li>Price: {{ price }}</li>
+  <li>Area: {{ area_value }} {{ area_unit | label(labels.unit) }}</li>
+  <li>Bedrooms: {{ bedrooms }}</li>
+  <li>Featured: {{ "Yes" if featured else "No" }}</li>
+  {% if features and features.length %}
+  <li>Features: {% for f in features %}{{ f | label(labels.feature) }}{% if not loop.last %}, {% endif %}{% endfor %}</li>
+  {% endif %}
+</ul>
+{% for photo in photos %}
+<figure>
+  <img src="{{ photo.image }}" alt="{{ photo.caption }}" loading="lazy">
+  <figcaption>{{ photo.caption }}</figcaption>
+</figure>
+{% endfor %}
+{{ content | safe }}

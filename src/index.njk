@@ -1,0 +1,10 @@
+---
+layout: base.njk
+title: Listings
+---
+<h1>Listings</h1>
+<ul>
+{% for item in collections.listings %}
+  <li><a href="{{ item.url }}">{{ item.data.title }}</a> — {{ item.data.price }}</li>
+{% endfor %}
+</ul>

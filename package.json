@@ -1,0 +1,20 @@
+{
+  "name": "feasibility-test",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve",
+    "time-deploy": "node scripts/time-deploy.mjs"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "3.1.7",
+    "decap-cms": "3.17.1"
+  },
+  "devDependencies": {
+    "wrangler": "4.151.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

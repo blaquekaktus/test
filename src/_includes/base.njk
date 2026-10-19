@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="build-commit" content="{{ site.commit }}">
+  <meta name="build-time" content="{{ site.builtAt }}">
+  <title>{{ title }} · {{ site.title }}</title>
+  <style>
+    body { font: 16px/1.5 system-ui, sans-serif; max-width: 48rem; margin: 0 auto; padding: 1rem; }
+    img { max-width: 100%; height: auto; }
+    .hp { position: absolute; left: -10000px; }
+    label { display: block; margin-top: .75rem; }
+    input, textarea { width: 100%; padding: .5rem; font: inherit; }
+  </style>
+</head>
+<body>
+  <header><a href="/">Home</a> · <a href="/contact/">Contact</a></header>
+  <main>
+    {{ content | safe }}
+  </main>
+  <footer><small>Build {{ site.commit }} at {{ site.builtAt }}</small></footer>
+</body>
+</html>

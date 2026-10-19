@@ -1,0 +1,5 @@
+{
+  "type": { "house": "House", "flat": "Flat", "plot": "Plot" },
+  "feature": { "garage": "Garage", "garden": "Garden", "solar": "Solar panels" },
+  "unit": { "marla": "Marla", "kanal": "Kanal", "sqft": "Square feet" }
+}

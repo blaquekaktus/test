@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Site editor</title>
+  <script>window.CMS_MANUAL_INIT = true;</script>
+  <script src="/admin/decap-cms.js"></script>
+</head>
+<body>
+  <script>
+    // base_url is the site's own origin, so the same file works on *.workers.dev,
+    // *.pages.dev and the final domain. Merged into config.yml (decapcms.org/docs/manual-initialization).
+    window.initCMS({
+      config: {
+        backend: { base_url: window.location.origin },
+      },
+    });
+  </script>
+</body>
+</html>

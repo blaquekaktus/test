@@ -1,0 +1,24 @@
+---
+layout: base.njk
+title: Contact
+permalink: /contact/
+---
+<h1>Contact (test 4)</h1>
+{% if site.web3formsKey %}
+<form action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="{{ site.web3formsKey }}">
+  <input type="hidden" name="subject" value="Feasibility test inquiry">
+  <input type="hidden" name="from_name" value="Feasibility test site">
+  <!-- Honeypot as documented by Web3Forms. Bots tick it; people never see it. -->
+  <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <label for="name">Name</label>
+  <input id="name" name="name" required autocomplete="name">
+  <label for="phone">Phone</label>
+  <input id="phone" name="phone" type="tel" required autocomplete="tel">
+  <label for="message">Message</label>
+  <textarea id="message" name="message" rows="5" required></textarea>
+  <p><button type="submit">Send</button></p>
+</form>
+{% else %}
+<p>The form is off: the build variable <code>WEB3FORMS_KEY</code> is not set.</p>
+{% endif %}

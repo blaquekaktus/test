@@ -1,0 +1,72 @@
+backend:
+  name: github
+  repo: blaquekaktus/test
+  branch: test-site
+  auth_endpoint: auth
+  # Decap asks GitHub for the "repo" scope unless this is set
+  # (decap-cms-backend-github/src/AuthenticationPage.js). For a public repo,
+  # "public_repo" is enough. Test 1 records which one is needed.
+  auth_scope: public_repo
+  commit_messages:
+    update: "Edit {{collection}} “{{slug}}” via /admin"
+    uploadMedia: "Upload “{{path}}” via /admin"
+
+media_folder: src/media/uploads
+public_folder: /media/uploads
+
+# Runs in the browser before the commit. JPEG, PNG and WebP only;
+# other types are committed unchanged (decapcms.org/docs/configuration-options).
+media_processing:
+  enabled: true
+  width: 2000
+  quality: 80
+  strip_metadata: true
+  format:
+    enabled: true
+    default: webp
+
+collections:
+  - name: listings
+    label: Listings
+    folder: src/listings
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    fields:
+      - { label: Title, name: title, widget: string }
+      - label: Type
+        name: type
+        widget: select
+        options:
+          - { label: House, value: house }
+          - { label: Flat, value: flat }
+          - { label: Plot, value: plot }
+      - { label: Price, name: price, widget: number, value_type: int, min: 0 }
+      - { label: Area, name: area_value, widget: number, value_type: float, min: 0 }
+      - label: Area unit
+        name: area_unit
+        widget: select
+        options:
+          - { label: Marla, value: marla }
+          - { label: Kanal, value: kanal }
+          - { label: Square feet, value: sqft }
+      - { label: Bedrooms, name: bedrooms, widget: number, value_type: int, min: 0 }
+      - { label: Featured on home page, name: featured, widget: boolean, default: false }
+      - label: Features
+        name: features
+        widget: select
+        multiple: true
+        required: false
+        options:
+          - { label: Garage, value: garage }
+          - { label: Garden, value: garden }
+          - { label: Solar panels, value: solar }
+      - label: Photos
+        name: photos
+        widget: list
+        required: false
+        fields:
+          - { label: Photo, name: image, widget: image }
+          - { label: Caption, name: caption, widget: string }
+      - { label: Description, name: body, widget: markdown }
