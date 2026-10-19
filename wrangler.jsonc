@@ -1,5 +1,3 @@
-// Used only on the Workers route. A Pages project skips this file
-// (it has no pages_build_output_dir).
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "feasibility-test",

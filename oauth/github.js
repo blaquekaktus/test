@@ -1,5 +1,4 @@
-// GitHub OAuth for Decap CMS. Shared by worker.js (Workers static assets)
-// and functions/ (Pages Functions), so the test can run on either host.
+// GitHub OAuth for Decap CMS, called from worker.js for /auth and /callback.
 //
 // Flow (docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps):
 //   /auth      -> redirect to GitHub with a random state, also stored in a cookie

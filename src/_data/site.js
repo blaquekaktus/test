@@ -3,8 +3,7 @@
 export default {
   title: "Feasibility test",
   web3formsKey: process.env.WEB3FORMS_KEY || "",
-  // Commit the build ran on. Workers Builds sets WORKERS_CI_COMMIT_SHA,
-  // Pages sets CF_PAGES_COMMIT_SHA. Used by scripts/time-deploy.mjs.
-  commit: process.env.WORKERS_CI_COMMIT_SHA || process.env.CF_PAGES_COMMIT_SHA || "local",
+  // Commit the build ran on, set by Workers Builds. Used by scripts/time-deploy.mjs.
+  commit: process.env.WORKERS_CI_COMMIT_SHA || "local",
   builtAt: new Date().toISOString(),
 };
